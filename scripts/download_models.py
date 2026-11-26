@@ -9,11 +9,11 @@ import urllib.request
 REPO = 'https://huggingface.co/AlexLiu2023/DDMF/resolve/main/'
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = {
-    'tooth': ('tooth_iter_160000.pth', '71579ab5eadd730bbaae0e2eb773a8ccc978869cc19a35bc939117ec08325e3d',
+    'tooth': ('ddmf_tstnet_tooth_iter160000.pth', '71579ab5eadd730bbaae0e2eb773a8ccc978869cc19a35bc939117ec08325e3d',
               'code/cbct-segmentation/work_dirs/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K_best_1:2/iter_160000.pth'),
-    'bone': ('bone_iter_160000.pth', '6868d4ea7ad1c0dfd269696493e1c82afa9e2b7784e112d15abc16f056d523be',
+    'bone': ('ddmf_tstnet_alveolar_bone_iter160000.pth', '6868d4ea7ad1c0dfd269696493e1c82afa9e2b7784e112d15abc16f056d523be',
              'code/jaw-segmentation/work_dirs/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K/iter_160000.pth'),
-    'ios': ('ios_model.onnx', 'ee7c8447dba3c74a2a11daa208c37806b6e221bb2d41da29edf5353aee364557',
+    'ios': ('ddmf_iosnet.onnx', 'ee7c8447dba3c74a2a11daa208c37806b6e221bb2d41da29edf5353aee364557',
             'code/seg_iosnet/deployment/app/model.onnx'),
 }
 

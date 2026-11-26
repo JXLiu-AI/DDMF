@@ -2,9 +2,27 @@
 
 Code for **Deep learning-enabled 3D multimodal fusion of cone-beam CT and intraoral mesh scans for clinically applicable tooth-bone reconstruction**, *Cell Press Patterns* (2023).
 
-[Paper](https://doi.org/10.1016/j.patter.2023.100825) | [Original code archive](https://doi.org/10.5281/zenodo.8027716) | [Released sample data](https://doi.org/10.5281/zenodo.8027553) | [Models](https://huggingface.co/AlexLiu2023/DDMF)
+[Paper](https://doi.org/10.1016/j.patter.2023.100825) | [Original code archive](https://doi.org/10.5281/zenodo.8027716) | [Released sample data](https://doi.org/10.5281/zenodo.8027553) | [Models (private)](https://huggingface.co/AlexLiu2023/DDMF)
 
 DDMF combines CBCT segmentation, intraoral mesh segmentation, registration, and geometric fusion to reconstruct tooth-crown, root, and bone structures.
+
+## Overview
+
+![DDMF framework: CBCT segmentation, IOS segmentation, and multimodal fusion](assets/figures/figure1_pipeline.png)
+
+**Figure 1.** The three-stage DDMF pipeline from the published paper.
+
+## Results
+
+![Published CBCT and IOS segmentation comparisons](assets/figures/figure3_segmentation.png)
+
+**Figure 3.** Tooth and alveolar-bone segmentation on CBCT, and tooth segmentation on IOS meshes. Red and green overlays indicate false negatives and false positives, respectively.
+
+![Published 3D reconstruction and quantitative comparisons](assets/figures/figure4_reconstruction.png)
+
+**Figure 4.** CBCT-only and fused reconstructions, surface comparisons, and quantitative results. These are published results, not new runs of this repository.
+
+Figures are reproduced from Liu et al., *Patterns* (2023), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See [figure provenance](assets/figures/README.md).
 
 ## Contents
 
@@ -31,6 +49,8 @@ The deployment modules additionally import Open3D, Trimesh, NumPy, SciPy, scikit
 
 The Hugging Face repository stores the original-format checkpoints separately from GitHub:
 
+**Model access is currently private.** The code and figures can be shared publicly, but the model link requires an authorized Hugging Face account. Refer to the paper's contact information for model-access enquiries. Standard jaw STL templates are not included.
+
 | File | Purpose |
 | --- | --- |
 | `ddmf_tstnet_tooth_iter160000.pth` | CBCT tooth segmentation |
@@ -39,14 +59,14 @@ The Hugging Face repository stores the original-format checkpoints separately fr
 
 Download the CBCT files to the paths referenced by your selected configuration, or pass their locations explicitly to `tools/test.py`. The tooth archive path ends in `...22K_best_1:2/iter_160000.pth`; the bone path ends in `...22K/iter_160000.pth`. Portable model filenames on Hugging Face avoid the colon in the original tooth directory.
 
-To download all three models to their expected deployment paths with SHA-256 verification:
+For a future public model release, the following downloader places all three models at their expected deployment paths with SHA-256 verification:
 
 ```bash
 python scripts/download_models.py
 # Or: python scripts/download_models.py --model ios
 ```
 
-The downloader uses only the Python standard library, verifies existing files, and refuses to overwrite a file with a different checksum.
+The downloader uses anonymous HTTPS and only the Python standard library, verifies existing files, and refuses to overwrite a file with a different checksum. It cannot access the currently private HF repository. For authorized private access, use the Hugging Face CLI after logging in, download the files named above, and place them at the expected paths.
 
 For example, after configuring the tooth dataset paths:
 

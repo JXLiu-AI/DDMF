@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.stl
+*.dcm
+*.nii
+*.nii.gz
+data/
+output/
+outputs/
+checkpoints/
+*.log

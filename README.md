@@ -33,9 +33,9 @@ The Hugging Face repository stores the original-format checkpoints separately fr
 
 | File | Purpose |
 | --- | --- |
-| `checkpoints/tooth_iter_160000.pth` | CBCT tooth segmentation |
-| `checkpoints/bone_iter_160000.pth` | CBCT alveolar bone segmentation |
-| `code/seg_iosnet/deployment/app/model.onnx` | IOS segmentation, from the published Zenodo archive |
+| `tooth_iter_160000.pth` | CBCT tooth segmentation |
+| `bone_iter_160000.pth` | CBCT alveolar bone segmentation |
+| `ios_model.onnx` | IOS segmentation; place at `code/seg_iosnet/deployment/app/model.onnx` |
 
 Download the CBCT files to the paths referenced by your selected configuration, or pass their locations explicitly to `tools/test.py`. The tooth archive path ends in `...22K_best_1:2/iter_160000.pth`; the bone path ends in `...22K/iter_160000.pth`. Portable model filenames on Hugging Face avoid the colon in the original tooth directory.
 

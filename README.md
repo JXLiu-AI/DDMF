@@ -39,6 +39,15 @@ The Hugging Face repository stores the original-format checkpoints separately fr
 
 Download the CBCT files to the paths referenced by your selected configuration, or pass their locations explicitly to `tools/test.py`. The tooth archive path ends in `...22K_best_1:2/iter_160000.pth`; the bone path ends in `...22K/iter_160000.pth`. Portable model filenames on Hugging Face avoid the colon in the original tooth directory.
 
+To download all three models to their expected deployment paths with SHA-256 verification:
+
+```bash
+python scripts/download_models.py
+# Or: python scripts/download_models.py --model ios
+```
+
+The downloader uses only the Python standard library, verifies existing files, and refuses to overwrite a file with a different checksum.
+
 For example, after configuring the tooth dataset paths:
 
 ```bash
